@@ -1,3 +1,4 @@
+
 import {
     Html,
     Head,
@@ -7,7 +8,6 @@ import {
     Row,
     Section,
     Text,
-    Button,
   } from '@react-email/components';
   
   interface VerificationEmailProps {
