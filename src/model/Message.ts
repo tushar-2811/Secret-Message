@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import  { Schema } from "mongoose";
 import { Message } from "./types/model.types";
 
 export const MessageSchema: Schema<Message> = new Schema({
