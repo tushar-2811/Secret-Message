@@ -3,7 +3,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcryptjs';
 import dbConnect from "@/lib/db";
 import UserModel from "@/model/User";
-import { signIn } from "next-auth/react";
 
 export const authOptions: NextAuthOptions = {
     providers : [
@@ -47,6 +46,13 @@ export const authOptions: NextAuthOptions = {
     ],
     callbacks : {
         async session({ session, token }) {
+            if(token){
+                session.user._id = token._id;
+                session.user.isVerified = token.isVerified;
+                session.user.isAcceptingMessages = token.isAcceptingMessages;
+                session.user.userName = token.userName;
+            }
+
             return session;
           },
           async jwt({ token, user}) {
