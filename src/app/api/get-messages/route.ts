@@ -68,7 +68,7 @@ export async function GET(request: Request){
         return Response.json(
             {
                 success : false,
-                message : "failed to get messages"
+                message : "Internal Server Error, failed to get messages"
             },{status : 500}
         )
     }
